@@ -1,10 +1,9 @@
 ﻿using MediatR;
 using System;
-using TODOList.Domain.Models.ResponseModels.CommandResponseModels;
 
 namespace TODOList.Domain.Models.RequestModels.CommandRequestModels
 {
-    public class UpdateTaskItemCommandRequestModel : IRequest<UpdateTaskItemCommandResponseModel>
+    public class UpdateTaskItemCommandRequestModel : IRequest
     {
         public UpdateTaskItemCommandRequestModel(string id, string taskListId, string name, string description, DateTime createDate, bool isDone)
         {

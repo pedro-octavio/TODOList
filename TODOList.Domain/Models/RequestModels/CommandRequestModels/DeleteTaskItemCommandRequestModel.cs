@@ -1,9 +1,8 @@
 ﻿using MediatR;
-using TODOList.Domain.Models.ResponseModels.CommandResponseModels;
 
 namespace TODOList.Domain.Models.RequestModels.CommandRequestModels
 {
-    public class DeleteTaskItemCommandRequestModel : IRequest<DeleteTaskItemCommandResponseModel>
+    public class DeleteTaskItemCommandRequestModel : IRequest
     {
         public DeleteTaskItemCommandRequestModel(string id)
         {
