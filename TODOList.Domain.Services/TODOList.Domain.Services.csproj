@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TODOList.Data.Core\TODOList.Data.Core.csproj" />
+    <ProjectReference Include="..\TODOList.Domain\TODOList.Domain.csproj" />
   </ItemGroup>
 
 </Project>

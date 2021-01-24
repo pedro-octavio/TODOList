@@ -10,12 +10,6 @@ namespace TODOList.Data.Core.Repositories
     public interface IGenericRepository<T> where T : class
     {
         /// <summary>
-        /// generic function for get all rows of table
-        /// </summary>
-        /// <returns></returns>
-        Task<IEnumerable<T>> GetAllAsync();
-
-        /// <summary>
         /// generic function for get a row by if for table
         /// </summary>
         /// <param name="id"></param>

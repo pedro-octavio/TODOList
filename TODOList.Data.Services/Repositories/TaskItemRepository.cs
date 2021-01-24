@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TODOList.Data.Core.Repositories;
 using TODOList.Data.Models;
 
@@ -11,6 +14,11 @@ namespace TODOList.Data.Services.Repositories
         public TaskItemRepository(ApplicationDataContext applicationDataContext) : base(applicationDataContext)
         {
             this.applicationDataContext = applicationDataContext;
+        }
+
+        public async Task<IEnumerable<TaskItemModel>> GetAllAsync(string taskListId)
+        {
+            return await applicationDataContext.TaskItems.Where(x => x.TaskListId == taskListId).ToListAsync();
         }
 
         public override async Task<string> AddAsync(TaskItemModel obj)

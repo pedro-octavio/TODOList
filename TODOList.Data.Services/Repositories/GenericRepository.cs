@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TODOList.Data.Core.Repositories;
 
@@ -13,11 +12,6 @@ namespace TODOList.Data.Services.Repositories
         public GenericRepository(ApplicationDataContext applicationDataContext)
         {
             this.applicationDataContext = applicationDataContext;
-        }
-
-        public async Task<IEnumerable<T>> GetAllAsync()
-        {
-            return await applicationDataContext.Set<T>().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(string id)
