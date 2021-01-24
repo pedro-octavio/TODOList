@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="5.2.0" />
+    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TODOList.Data.Core\TODOList.Data.Core.csproj" />
+    <ProjectReference Include="..\TODOList.Data.Services\TODOList.Data.Services.csproj" />
+    <ProjectReference Include="..\TODOList.Domain\TODOList.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
