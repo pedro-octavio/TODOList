@@ -1,9 +1,11 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TODOList.Shared.IOC;
 
 namespace TODOList.Presentation
 {
@@ -24,6 +26,11 @@ namespace TODOList.Presentation
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TODOList.Presentation", Version = "v1" });
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule(new ModuleIOC());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
