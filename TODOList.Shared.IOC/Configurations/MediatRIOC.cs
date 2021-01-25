@@ -12,7 +12,7 @@ namespace TODOList.Shared.IOC.Configurations
         /// <param name="containerBuilder"></param>
         internal static void Load(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterMediatR(AppDomain.CurrentDomain.Load("TODOList.Domain"));
+            containerBuilder.RegisterMediatR(AppDomain.CurrentDomain.Load("TODOList.Domain.Services"));
         }
     }
 }

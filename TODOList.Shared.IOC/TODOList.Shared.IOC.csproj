@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TODOList.Data.Core\TODOList.Data.Core.csproj" />
     <ProjectReference Include="..\TODOList.Data.Services\TODOList.Data.Services.csproj" />
+    <ProjectReference Include="..\TODOList.Domain.Services\TODOList.Domain.Services.csproj" />
     <ProjectReference Include="..\TODOList.Domain\TODOList.Domain.csproj" />
   </ItemGroup>
 
