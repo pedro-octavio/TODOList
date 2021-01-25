@@ -24,7 +24,7 @@ namespace TODOList.Presentation
         {
             services.AddControllers();
 
-            services.AddDbContext<ApplicationDataContext>(options => options.UseSqlite(Configuration.GetConnectionString("TODOListDB")));
+            services.AddDbContext<ApplicationDataContext>(options => options.UseSqlite(Configuration.GetConnectionString("TODOListDB"), m => m.MigrationsAssembly("TODOList.Presentation")));
 
             services.AddSwaggerGen(c =>
             {
