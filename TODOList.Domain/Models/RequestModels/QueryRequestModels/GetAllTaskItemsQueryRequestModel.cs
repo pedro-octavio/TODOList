@@ -7,7 +7,7 @@ namespace TODOList.Domain.Models.RequestModels.QueryRequestModels
 {
     public class GetAllTaskItemsQueryRequestModel : IRequest<IEnumerable<GetAllTaskItemsQueryResponseModel>>
     {
-        public string Id { get; set; }
+        public string TaskListId { get; set; }
         public DateTime? CreateDate { get; set; }
     }
 }
