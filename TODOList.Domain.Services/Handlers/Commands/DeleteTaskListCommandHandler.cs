@@ -23,7 +23,7 @@ namespace TODOList.Domain.Services.Handlers.Commands
             switch (taskList != null)
             {
                 case true:
-                    await taskListRepository.UpdateAsync(taskList);
+                    await taskListRepository.DeleteAsync(taskList);
                     break;
                 case false: throw new Exception("Task List doens't exists.");
             }
