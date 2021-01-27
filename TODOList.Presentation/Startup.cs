@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 using TODOList.Data;
 using TODOList.Presentation.Middlewares;
 using TODOList.Shared.IOC;
@@ -28,9 +29,25 @@ namespace TODOList.Presentation
 
             services.AddDbContext<ApplicationDataContext>(options => options.UseSqlite(Configuration.GetConnectionString("TODOListDB"), m => m.MigrationsAssembly("TODOList.Presentation")));
 
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(s =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TODOList.Presentation", Version = "v1" });
+                s.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "1.0.0",
+                    Title = "TODOList API",
+                    Description = "Application for control a Todo List.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Pedro Octávio",
+                        Email = "pedrooctavio.dev@outlook.com",
+                        Url = new Uri("https://github.com/pedro-octavio")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT",
+                        Url = new Uri("https://github.com/pedro-octavio/TODOList/blob/main/LICENSE")
+                    }
+                });
             });
         }
 
@@ -45,7 +62,7 @@ namespace TODOList.Presentation
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TODOList.Presentation v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TODOList"));
             }
 
             app.UseHttpsRedirection();
