@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TODOList.Data;
+using TODOList.Presentation.Middlewares;
 using TODOList.Shared.IOC;
 
 namespace TODOList.Presentation
@@ -52,6 +53,8 @@ namespace TODOList.Presentation
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
