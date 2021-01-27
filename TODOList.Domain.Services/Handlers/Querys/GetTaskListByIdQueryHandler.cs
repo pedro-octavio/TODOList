@@ -11,14 +11,14 @@ namespace TODOList.Domain.Services.Handlers.Querys
 {
     public class GetTaskListByIdQueryHandler : IRequestHandler<GetTaskListByIdQueryRequestModel, GetTaskListByIdQueryResponseModel>
     {
-        private readonly ITaskListRepository taskListRepository;
-        private readonly IMapper mapper;
-
         public GetTaskListByIdQueryHandler(ITaskListRepository taskListRepository, IMapper mapper)
         {
             this.taskListRepository = taskListRepository;
             this.mapper = mapper;
         }
+
+        private readonly ITaskListRepository taskListRepository;
+        private readonly IMapper mapper;
 
         public async Task<GetTaskListByIdQueryResponseModel> Handle(GetTaskListByIdQueryRequestModel requestModel, CancellationToken cancellationToken)
         {

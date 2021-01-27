@@ -12,16 +12,16 @@ namespace TODOList.Domain.Services.Handlers.Querys
 {
     public class GetAllTaskItemsQueryHandler : IRequestHandler<GetAllTaskItemsQueryRequestModel, IEnumerable<GetAllTaskItemsQueryResponseModel>>
     {
-        private readonly ITaskItemRepository taskItemRepository;
-        private readonly ITaskListRepository taskListRepository;
-        private readonly IMapper mapper;
-
         public GetAllTaskItemsQueryHandler(ITaskItemRepository taskItemRepository, ITaskListRepository taskListRepository, IMapper mapper)
         {
             this.taskItemRepository = taskItemRepository;
             this.taskListRepository = taskListRepository;
             this.mapper = mapper;
         }
+
+        private readonly ITaskItemRepository taskItemRepository;
+        private readonly ITaskListRepository taskListRepository;
+        private readonly IMapper mapper;
 
         public async Task<IEnumerable<GetAllTaskItemsQueryResponseModel>> Handle(GetAllTaskItemsQueryRequestModel requestModel, CancellationToken cancellationToken)
         {

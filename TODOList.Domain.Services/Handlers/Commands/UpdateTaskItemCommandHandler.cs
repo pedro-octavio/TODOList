@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,14 +10,12 @@ namespace TODOList.Domain.Services.Handlers.Commands
 {
     public class UpdateTaskItemCommandHandler : IRequestHandler<UpdateTaskItemCommandRequestModel>
     {
-        private readonly ITaskItemRepository taskItemRepository;
-        private readonly IMapper mapper;
-
-        public UpdateTaskItemCommandHandler(ITaskItemRepository taskItemRepository, IMapper mapper)
+        public UpdateTaskItemCommandHandler(ITaskItemRepository taskItemRepository)
         {
             this.taskItemRepository = taskItemRepository;
-            this.mapper = mapper;
         }
+
+        private readonly ITaskItemRepository taskItemRepository;
 
         public async Task<Unit> Handle(UpdateTaskItemCommandRequestModel requestModel, CancellationToken cancellationToken)
         {

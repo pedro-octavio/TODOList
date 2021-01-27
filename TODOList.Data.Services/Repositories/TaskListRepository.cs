@@ -10,12 +10,12 @@ namespace TODOList.Data.Services.Repositories
 {
     public class TaskListRepository : GenericRepository<TaskListModel>, ITaskListRepository
     {
-        private ApplicationDataContext applicationDataContext;
-
         public TaskListRepository(ApplicationDataContext applicationDataContext) : base(applicationDataContext)
         {
             this.applicationDataContext = applicationDataContext;
         }
+
+        private readonly ApplicationDataContext applicationDataContext;
 
         public async Task<IEnumerable<TaskListModel>> GetAllAsync(DateTime? createDate)
         {

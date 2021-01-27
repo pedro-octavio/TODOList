@@ -7,12 +7,12 @@ namespace TODOList.Data.Services.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly ApplicationDataContext applicationDataContext;
-
         public GenericRepository(ApplicationDataContext applicationDataContext)
         {
             this.applicationDataContext = applicationDataContext;
         }
+
+        private readonly ApplicationDataContext applicationDataContext;
 
         public async Task<T> GetByIdAsync(string id)
         {

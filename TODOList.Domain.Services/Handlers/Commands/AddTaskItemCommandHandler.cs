@@ -12,10 +12,6 @@ namespace TODOList.Domain.Services.Handlers.Commands
 {
     public class AddTaskItemCommandHandler : IRequestHandler<AddTaskItemCommandRequestModel, AddTaskItemCommandResponseModel>
     {
-        private readonly ITaskItemRepository taskItemRepository;
-        private readonly ITaskListRepository taskListRepository;
-        private readonly IMapper mapper;
-
         public AddTaskItemCommandHandler(ITaskItemRepository taskItemRepository, ITaskListRepository taskListRepository, IMapper mapper)
         {
             this.taskItemRepository = taskItemRepository;
@@ -23,9 +19,13 @@ namespace TODOList.Domain.Services.Handlers.Commands
             this.mapper = mapper;
         }
 
+        private readonly ITaskItemRepository taskItemRepository;
+        private readonly ITaskListRepository taskListRepository;
+        private readonly IMapper mapper;
+
         public async Task<AddTaskItemCommandResponseModel> Handle(AddTaskItemCommandRequestModel requestModel, CancellationToken cancellationToken)
         {
-            var taskList = await taskItemRepository.GetByIdAsync(requestModel.TaskListId);
+            var taskList = await taskListRepository.GetByIdAsync(requestModel.TaskListId);
 
             switch (taskList != null)
             {

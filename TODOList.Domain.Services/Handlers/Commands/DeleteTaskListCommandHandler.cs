@@ -9,12 +9,12 @@ namespace TODOList.Domain.Services.Handlers.Commands
 {
     public class DeleteTaskListCommandHandler : IRequestHandler<DeleteTaskListCommandRequestModel>
     {
-        private readonly ITaskListRepository taskListRepository;
-
         public DeleteTaskListCommandHandler(ITaskListRepository taskListRepository)
         {
             this.taskListRepository = taskListRepository;
         }
+
+        private readonly ITaskListRepository taskListRepository;
 
         public async Task<Unit> Handle(DeleteTaskListCommandRequestModel requestModel, CancellationToken cancellationToken)
         {

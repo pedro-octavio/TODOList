@@ -11,14 +11,14 @@ namespace TODOList.Domain.Services.Handlers.Commands
 {
     public class AddTaskListCommandHandler : IRequestHandler<AddTaskListCommandRequestModel, AddTaskListCommandResponseModel>
     {
-        private readonly ITaskListRepository taskListRepository;
-        private readonly IMapper mapper;
-
         public AddTaskListCommandHandler(ITaskListRepository taskListRepository, IMapper mapper)
         {
             this.taskListRepository = taskListRepository;
             this.mapper = mapper;
         }
+
+        private readonly ITaskListRepository taskListRepository;
+        private readonly IMapper mapper;
 
         public async Task<AddTaskListCommandResponseModel> Handle(AddTaskListCommandRequestModel requestModel, CancellationToken cancellationToken)
         {
