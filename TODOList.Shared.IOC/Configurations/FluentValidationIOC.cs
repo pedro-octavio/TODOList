@@ -8,6 +8,10 @@ namespace TODOList.Shared.IOC.Configurations
 {
     internal class FluentValidationIOC
     {
+        /// <summary>
+        /// function for apply ioc configuration of FluentValidation
+        /// </summary>
+        /// <param name="containerBuilder"></param>
         internal static void Load(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<AddTaskListCommandValidator>().As<IValidator<AddTaskListCommandRequestModel>>();
