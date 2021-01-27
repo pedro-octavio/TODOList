@@ -1,4 +1,5 @@
 using Autofac;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,7 @@ namespace TODOList.Presentation
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation();
 
             services.AddDbContext<ApplicationDataContext>(options => options.UseSqlite(Configuration.GetConnectionString("TODOListDB"), m => m.MigrationsAssembly("TODOList.Presentation")));
 
