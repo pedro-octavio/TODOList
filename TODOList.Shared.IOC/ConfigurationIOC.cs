@@ -15,6 +15,8 @@ namespace TODOList.Shared.IOC
 
             AutomapperIOC.Load(containerBuilder);
 
+            FluentValidationIOC.Load(containerBuilder);
+
             RepositoryIOC.Load(containerBuilder);
         }
     }
