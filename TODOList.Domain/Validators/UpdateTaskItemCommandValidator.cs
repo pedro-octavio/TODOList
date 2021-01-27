@@ -12,11 +12,6 @@ namespace TODOList.Domain.Validators
                .NotEmpty().WithMessage("The id cannot be empty.")
                .Length(10).WithMessage("The length of id must be 10 caracters.");
 
-            RuleFor(x => x.TaskListId)
-                .NotNull().WithMessage("The task list id cannot be null.")
-                .NotEmpty().WithMessage("The task list id cannot be empty.")
-                .Length(10).WithMessage("The length of task list id must be 10 caracters.");
-
             RuleFor(x => x.Name)
                 .NotNull().WithMessage("The name cannot be null.")
                 .NotEmpty().WithMessage("The name cannot be empty.")

@@ -25,11 +25,11 @@ namespace TODOList.Domain.Services.Handlers.Querys
 
         public async Task<IEnumerable<GetAllTaskItemsQueryResponseModel>> Handle(GetAllTaskItemsQueryRequestModel requestModel, CancellationToken cancellationToken)
         {
-            var taskListExists = await taskListRepository.GetByIdAsync(requestModel.TaskListId) != null;
+            var taskList = await taskListRepository.GetByIdAsync(requestModel.TaskListId);
 
-            switch (taskListExists)
+            switch (taskList != null)
             {
-                case true: return mapper.Map<IEnumerable<GetAllTaskItemsQueryResponseModel>>(await taskItemRepository.GetAllAsync(requestModel.TaskListId));
+                case true: return mapper.Map<IEnumerable<GetAllTaskItemsQueryResponseModel>>(await taskItemRepository.GetAllAsync(requestModel.CreateDate, requestModel.TaskListId));
                 case false: throw new Exception("Task List doens't exists.");
             }
         }

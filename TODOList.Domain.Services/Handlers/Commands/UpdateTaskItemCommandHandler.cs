@@ -22,12 +22,12 @@ namespace TODOList.Domain.Services.Handlers.Commands
 
         public async Task<Unit> Handle(UpdateTaskItemCommandRequestModel requestModel, CancellationToken cancellationToken)
         {
-            var taskItemExists = await taskItemRepository.GetByIdAsync(requestModel.Id) != null;
+            var taskItem = await taskItemRepository.GetByIdAsync(requestModel.Id);
 
-            switch (taskItemExists)
+            switch (taskItem != null)
             {
                 case true:
-                    await taskItemRepository.UpdateAsync(mapper.Map<TaskItemModel>(requestModel));
+                    await taskItemRepository.UpdateAsync(new TaskItemModel(requestModel.Id, taskItem.TaskListId, requestModel.Name, requestModel.Description, taskItem.CreateDate, requestModel.IsDone));
                     break;
                 case false: throw new Exception("Task Item doens't exists");
             }

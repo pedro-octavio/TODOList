@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,14 +17,20 @@ namespace TODOList.Data.Services.Repositories
             this.applicationDataContext = applicationDataContext;
         }
 
-        public async Task<IEnumerable<TaskItemModel>> GetAllAsync(string taskListId)
+        public async Task<IEnumerable<TaskItemModel>> GetAllAsync(DateTime? createDate, string taskListId)
         {
-            return await applicationDataContext.TaskItems.Where(x => x.TaskListId == taskListId).ToListAsync();
+            var taskLists = await applicationDataContext.TaskItems.Where(x => x.TaskListId == taskListId).ToListAsync();
+
+            if (createDate != null) taskLists = taskLists.Where(x => x.CreateDate >= createDate).ToList();
+
+            return taskLists;
         }
 
         public override async Task<string> AddAsync(TaskItemModel obj)
         {
             var addResult = await applicationDataContext.TaskItems.AddAsync(obj);
+
+            await applicationDataContext.SaveChangesAsync();
 
             return addResult.Entity.Id;
         }
