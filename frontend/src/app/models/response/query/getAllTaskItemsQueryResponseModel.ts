@@ -1,4 +1,4 @@
-export default class getAllTaskItemsQueryResponseModel {
+export default class GetAllTaskItemsQueryResponseModel {
     constructor(id: string, name: string, createDate: Date, isDone: boolean) {
         this.id = id
         this.name = name

@@ -1,4 +1,4 @@
-export default class addTaskListCommandResponseModel {
+export default class AddTaskListCommandResponseModel {
     constructor(id: string) {
         this.id = id
     }

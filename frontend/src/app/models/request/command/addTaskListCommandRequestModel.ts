@@ -1,4 +1,4 @@
-export default class addTaskListCommandRequestModel {
+export default class AddTaskListCommandRequestModel {
     constructor(name: string, description?: string) {
         this.name = name
         this.description = description

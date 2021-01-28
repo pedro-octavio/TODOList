@@ -1,4 +1,4 @@
-export default class getAllTaskListsQueryRequestModel {
+export default class GetAllTaskListsQueryRequestModel {
     constructor(createDate: Date) {
         this.createDate = createDate
     }

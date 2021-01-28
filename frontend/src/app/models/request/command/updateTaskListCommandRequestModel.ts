@@ -1,4 +1,4 @@
-export default class updateTaskListCommandRequestModel {
+export default class UpdateTaskListCommandRequestModel {
     constructor(id: string, name: string, description?: string) {
         this.id = id
         this.name = name

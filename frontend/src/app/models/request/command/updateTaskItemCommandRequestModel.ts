@@ -1,4 +1,4 @@
-export default class updateTaskItemCommandRequestModel {
+export default class UpdateTaskItemCommandRequestModel {
     constructor(id: string, name: string, isDone: boolean, description?: string) {
         this.id = id
         this.name = name

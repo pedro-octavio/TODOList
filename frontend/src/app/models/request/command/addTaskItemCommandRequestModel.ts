@@ -1,4 +1,4 @@
-export default class addTaskItemCommandRequestModel {
+export default class AddTaskItemCommandRequestModel {
     constructor(taskListId: string, name: string, description?: string) {
         this.taskListId = taskListId
         this.name = name

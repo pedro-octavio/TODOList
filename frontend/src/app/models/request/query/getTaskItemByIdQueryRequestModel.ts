@@ -1,4 +1,4 @@
-export default class getAllTaskListsQueryRequestModel {
+export default class GetAllTaskListsQueryRequestModel {
     constructor(id: string) {
         this.id = id
     }

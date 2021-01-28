@@ -1,4 +1,4 @@
-export default class deleteTaskListCommandRequestModel {
+export default class DeleteTaskListCommandRequestModel {
     constructor(id: string) {
         this.id = id
     }

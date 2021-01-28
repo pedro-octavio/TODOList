@@ -1,5 +1,5 @@
-export default class getAllTaskListsQueryResponseModel {
-    constructor(id: string, name: string, createDate: Date,) {
+export default class GetAllTaskListsQueryResponseModel {
+    constructor(id: string, name: string, createDate: Date) {
         this.id = id
         this.name = name
         this.createDate = createDate
