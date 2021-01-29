@@ -14,19 +14,29 @@ namespace TODOList.Shared.IOC.Configurations
         /// <param name="containerBuilder"></param>
         internal static void Load(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<AddTaskListCommandValidator>().As<IValidator<AddTaskListCommandRequestModel>>();
-            containerBuilder.RegisterType<AddTaskItemCommandValidator>().As<IValidator<AddTaskItemCommandRequestModel>>();
-
-            containerBuilder.RegisterType<DeleteTaskListCommandValidator>().As<IValidator<DeleteTaskListCommandRequestModel>>();
-            containerBuilder.RegisterType<DeleteTaskItemCommandValidator>().As<IValidator<DeleteTaskItemCommandRequestModel>>();
-
-            containerBuilder.RegisterType<GetAllTaskItemsQueryValidator>().As<IValidator<GetAllTaskItemsQueryRequestModel>>();
-
+            #region Get by Id
             containerBuilder.RegisterType<GetTaskListByIdQueryValidator>().As<IValidator<GetTaskListByIdQueryRequestModel>>();
             containerBuilder.RegisterType<GetTaskItemByIdQueryValidator>().As<IValidator<GetTaskItemByIdQueryRequestModel>>();
+            #endregion
 
+            #region Get
+            containerBuilder.RegisterType<GetAllTaskItemsQueryValidator>().As<IValidator<GetAllTaskItemsQueryRequestModel>>();
+            #endregion
+
+            #region Add
+            containerBuilder.RegisterType<AddTaskListCommandValidator>().As<IValidator<AddTaskListCommandRequestModel>>();
+            containerBuilder.RegisterType<AddTaskItemCommandValidator>().As<IValidator<AddTaskItemCommandRequestModel>>();
+            #endregion
+
+            #region Delete
+            containerBuilder.RegisterType<DeleteTaskListCommandValidator>().As<IValidator<DeleteTaskListCommandRequestModel>>();
+            containerBuilder.RegisterType<DeleteTaskItemCommandValidator>().As<IValidator<DeleteTaskItemCommandRequestModel>>();
+            #endregion
+
+            #region Update
             containerBuilder.RegisterType<UpdateTaskListCommandValidator>().As<IValidator<UpdateTaskListCommandRequestModel>>();
             containerBuilder.RegisterType<UpdateTaskItemCommandValidator>().As<IValidator<UpdateTaskItemCommandRequestModel>>();
+            #endregion
         }
     }
 }
